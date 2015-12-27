@@ -56,8 +56,23 @@ mv /build/douyu.js /srv/douyu.js
 mv /build/douyu-connector /usr/local/bin/douyu-connector
 
 # cleanup
-apt-get remove -qqy ${BUILD_DEPS}
-apt-get autoremove -qqy
+apt-get remove -qqy \
+	${BUILD_DEPS} \
+	libdrm-dev libegl1-mesa-dev libexpat1-dev libfontconfig1-dev \
+	libfreetype6-dev libharfbuzz-dev libice-dev libmirclient-dev \
+	libmirprotobuf-dev libpcre3-dev libpixman-1-dev libpng12-dev \
+	libprotobuf-dev libpthread-stubs0-dev libsm-dev libstdc++-4.8-dev \
+	libwayland-dev libx11-dev libx11-xcb-dev libxau-dev libxcb-dri2-0-dev \
+	libxcb-dri3-dev libxcb-glx0-dev libxcb-present-dev libxcb-randr0-dev \
+	libxcb-render0-dev libxcb-shape0-dev libxcb-shm0-dev libxcb-sync-dev \
+	libxcb-xfixes0-dev libxcb1-dev libxcomposite-dev libxdamage-dev \
+	libxdmcp-dev libxext-dev libxfixes-dev libxi-dev libxinerama-dev \
+	libxshmfence-dev libxxf86vm-dev mesa-common-dev mircommon-dev \
+	x11proto-composite-dev x11proto-core-dev x11proto-damage-dev \
+	x11proto-dri2-dev x11proto-fixes-dev x11proto-gl-dev x11proto-input-dev \
+	x11proto-kb-dev x11proto-randr-dev x11proto-render-dev x11proto-xext-dev \
+	x11proto-xf86vidmode-dev x11proto-xinerama-dev xtrans-dev zlib1g-dev
+
 apt-get clean -qq
 rm -rf /tmp/* /var/tmp/*
 rm -rf /var/lib/apt/lists/*
