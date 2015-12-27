@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export DOUYU_SIDE_CHANNEL=1
+export DOUYU_IS_SCRAPING=1
+
+exec xvfb-run -s '-screen 0 1024x768x24' /srv/slimerjs/slimerjs --load-images=no /srv/douyu.js $*
