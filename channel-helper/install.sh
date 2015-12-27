@@ -3,7 +3,7 @@
 BUILD_DEPS="
 build-essential git cmake ragel libasound2-dev libssl-dev libglib2.0-dev libpango1.0-dev
 libgl1-mesa-dev libevent-dev libgtk2.0-dev libxrandr-dev libxrender-dev
-libxcursor-dev
+libxcursor-dev libgles2-mesa-dev
 paxctl
 "
 
@@ -27,7 +27,7 @@ git clone https://github.com/xen0n/freshplayerplugin.git
 cd freshplayerplugin
 git checkout 0912a53b79287d5d4b1036e666dd6df8fedba691
 mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release -DWITH_HWDEC=0 -DWITH_LIBV4L2=0 ..
+cmake -DCMAKE_BUILD_TYPE=Release -DWITH_HWDEC=0 -DWITH_LIBV4L2=0 -DWITH_GLES2=1 ..
 make -j20
 
 # replace the NPAPI flash plugin
