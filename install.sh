@@ -19,8 +19,8 @@ export DEBIAN_FRONTEND=noninteractive
 sed -i 's/archive\.ubuntu\.com/cn.archive.ubuntu.com/' /etc/apt/sources.list
 echo 'deb http://archive.canonical.com/ubuntu trusty partner' >> /etc/apt/sources.list
 echo 'deb-src http://archive.canonical.com/ubuntu trusty partner' >> /etc/apt/sources.list
-apt-get update
-apt-get install -y --no-install-recommends \
+apt-get update -qq
+apt-get install -qqy --no-install-recommends \
 	xvfb adobe-flashplugin \
 	${BUILD_DEPS}
 
@@ -43,7 +43,7 @@ mkdir /root/.config
 mv /build/freshwrapper.conf /root/.config/freshwrapper.conf
 
 # slimerjs
-wget http://download.slimerjs.org/releases/0.9.6/slimerjs-0.9.6-linux-x86_64.tar.bz2
+wget -q http://download.slimerjs.org/releases/0.9.6/slimerjs-0.9.6-linux-x86_64.tar.bz2
 cd /srv
 tar xf /tmp/slimerjs-0.9.6-linux-x86_64.tar.bz2
 rm /tmp/slimerjs-0.9.6-linux-x86_64.tar.bz2
@@ -56,9 +56,9 @@ mv /build/douyu.js /srv/douyu.js
 mv /build/douyu-connector /usr/local/bin/douyu-connector
 
 # cleanup
-apt-get remove -y ${BUILD_DEPS}
-apt-get autoremove -y
-apt-get clean
+apt-get remove -qqy ${BUILD_DEPS}
+apt-get autoremove -qqy
+apt-get clean -qq
 rm -rf /tmp/* /var/tmp/*
 rm -rf /var/lib/apt/lists/*
 rm -f /etc/dpkg/dpkg.cfg.d/02apt-speedup
