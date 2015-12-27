@@ -28,7 +28,7 @@ apt-get install -y --no-install-recommends \
 cd /tmp
 git clone https://github.com/xen0n/freshplayerplugin.git
 cd freshplayerplugin
-git checkout 0912a53b79287d5d4b1036e666dd6df8fedba691
+git checkout bb675e36154c4f84180ee4797def4417977a58da
 mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Release -DWITH_HWDEC=0 -DWITH_LIBV4L2=0 -DWITH_GLES2=1 ..
 make -j20
