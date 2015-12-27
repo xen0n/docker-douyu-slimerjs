@@ -7,10 +7,13 @@ libxcursor-dev libgles2-mesa-dev
 paxctl
 "
 
+# configure apt-get
 # Temporarily disable dpkg fsync to make building faster.                     
 if [[ ! -e /etc/dpkg/dpkg.cfg.d/docker-apt-speedup ]]; then
 	echo force-unsafe-io > /etc/dpkg/dpkg.cfg.d/docker-apt-speedup
 fi
+
+export DEBIAN_FRONTEND=noninteractive
 
 # install deps
 sed -i 's/archive\.ubuntu\.com/cn.archive.ubuntu.com/' /etc/apt/sources.list
